@@ -1,0 +1,13 @@
+services:
+  redis:
+    image: redis:7.4
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis:/data
+    restart: always
+    network_mode: "bridge"
+
+volumes:
+  redis:

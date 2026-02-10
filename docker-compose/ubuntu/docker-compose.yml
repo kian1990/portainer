@@ -1,0 +1,14 @@
+services:
+  ubuntu:
+    image: ubuntu:24.04
+    container_name: ubuntu
+    tty: true
+    stdin_open: true
+    command: /bin/bash
+    volumes:
+      - ubuntu:/home
+    restart: always
+    network_mode: "bridge"
+
+volumes:
+  ubuntu:

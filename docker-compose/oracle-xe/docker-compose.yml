@@ -1,0 +1,16 @@
+services:
+  oracle-xe:
+    image: gvenzl/oracle-xe:21
+    platform: linux/amd64
+    container_name: oracle-xe
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_PASSWORD: root
+    volumes:
+      - oracle-xe:/data
+    restart: always
+    network_mode: "bridge"
+
+volumes:
+  oracle-xe:

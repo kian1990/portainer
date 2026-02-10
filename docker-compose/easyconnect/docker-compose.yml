@@ -1,0 +1,26 @@
+services:
+  easyconnect:
+    image: hagb/docker-easyconnect:7.6.7
+    container_name: easyconnect
+    environment:
+      - DISABLE_PKG_VERSION_XML=1
+      - PASSWORD=root
+      - URLWIN=1
+    volumes:
+      - easyconnect:/usr/share/sangfor/EasyConnect/resources/logs
+      - easyconnect:/root
+    ports:
+      - "5900:5901"
+      - "1080:1080"
+      - "8888:8888"
+      # - "54530:54530"
+    devices:
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    restart: always
+    tty: true
+    network_mode: "bridge"
+
+volumes:
+  easyconnect:

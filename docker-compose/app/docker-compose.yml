@@ -1,0 +1,13 @@
+services:
+  app:
+    image: app
+    container_name: app
+    ports:
+      - "30080:80"
+    volumes:
+      - app:/opt/app
+    restart: always
+    network_mode: "bridge"
+
+volumes:
+  app:
